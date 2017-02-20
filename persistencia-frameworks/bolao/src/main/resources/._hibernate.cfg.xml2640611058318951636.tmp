@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory name="hibernateSessionFactory">
+
+	<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost/bolao</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">mysql</property>
+		
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">false</property>		
+		<property name="hibernate.hbm2ddl.auto">update</property>
+			
+		<property name="hibernate.current_session_context_class">thread</property>	
+
+		<mapping class="com.bolao.model.Grupo" />
+		<mapping class="com.bolao.model.Time" />
+		<mapping class="com.bolao.model.Participante" />
+		<mapping class="com.bolao.model.Aposta" />
+		<mapping class="com.bolao.model.ApostaJogo" />
+		<mapping class="com.bolao.model.Jogos" />
+		<!-- <mapping class="com.bolao.model.ApostaClassificacaoGrupo" />
+		<mapping class="com.bolao.model.ClassificacaoGrupo" />
+		<mapping class="com.bolao.model.Jogos" />
+		<mapping class="com.bolao.model.Pontuacao" />
+		
+		<mapping class="com.bolao.model.Time" /> -->
+		
+	</session-factory>
+
+</hibernate-configuration>

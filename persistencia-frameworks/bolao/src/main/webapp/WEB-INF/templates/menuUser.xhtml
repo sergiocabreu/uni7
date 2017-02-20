@@ -1,0 +1,81 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view>
+	<h:form>
+
+		<h2 class="dn">Menu Principal</h2>
+		<!-- <sec:ifAnyGranted roles="ROLE_CONSULTAS"> -->
+		<!-- <p:commandButton id="ola" value="Olá, #{loginController.usuarioLogado.username}! Sua classificação é: #{loginControler.usuarioLogado.classificacao}" type="button" style="height: 38px;"/> -->
+		<!-- </sec:ifAnyGranted> -->
+		<!-- <sec:ifNotGranted roles="ROLE_CONSULTAS"> -->
+		<p:commandButton id="ola" value="Olá, #{loginController.usuarioLogado.username}!" type="button" style="height: 38px;"/>
+		<!-- </sec:ifNotGranted>  --> 
+    	<p:menu overlay="true" trigger="ola" my="right top" at="right bottom">
+    			<!-- <sec:ifAnyGranted roles="ROLE_ADMIN"> -->
+				<p:submenu label="Tabelas" rendered="#{loginController.usuarioLogado.flAdmin}">
+					<p:menuitem value="Grupo" url="/paginas/cadastro-grupo.faces" />
+					<p:menuitem value="Time" url="/paginas/cadastro-time.faces" />
+				</p:submenu>
+				<p:submenu label="Cadastros" rendered="#{loginController.usuarioLogado.flAdmin}">
+					<p:menuitem value="Bolao"
+						url="/paginas/cadastro-bolao.faces" />
+					<p:menuitem value="Participante"
+						url="/paginas/participanteList.faces" />
+					<p:menuitem value="Jogos" url="/paginas/cadastro-jogos.faces" />
+					<p:menuitem value="Classificação Grupo"
+						url="/paginas/classificacaoGrupoList.faces" />
+				</p:submenu>
+				<p:separator />
+				<!-- </sec:ifAnyGranted> -->
+				<p:menuitem value="Sair" url="/logout.jsp" style="text-decoration: underline; font-weight: bold;" />
+		</p:menu>
+		
+
+		<!-- 	<ul> -->
+		<!-- 		<ui:fragment> -->
+
+		<!-- MENU TABELAS -->
+		<!-- 		<li> -->
+		<!-- 			<a href="#" title="">Tabelas</a> -->
+		<!-- 			<ul class="sub-menu"> -->
+		<!-- 				<li> -->
+		<!-- 	            	 <a href="/bolaoCopaDoMundo/paginas/grupoList.faces" title="" >Grupo</a> -->
+		<!-- 	            	 <a href="/bolaoCopaDoMundo/paginas/selecaoList.faces" title="" >Seleção</a> -->
+		<!-- 	        	</li> -->
+		<!-- 			</ul> -->
+		<!-- 		</li> -->
+
+		<!-- MENU CADASTROS -->
+		<!-- 		<li> -->
+		<!-- 			<a href="#" title="">Cadastros</a> -->
+		<!-- 			<ul class="sub-menu"> -->
+		<!-- 				<li> -->
+		<!-- 					<a href="/bolaoCopaDoMundo/paginas/participanteList.faces" title="" >Participante</a> -->
+		<!-- 					<a href="/bolaoCopaDoMundo/paginas/jogosList.faces" title="" >Jogos</a> -->
+		<!-- 					<a href="/bolaoCopaDoMundo/paginas/classificacaoGrupoList.faces" title="" >Classificação Grupo</a> -->
+
+		<!-- 				</li> -->
+		<!-- 			</ul> -->
+		<!--         </li> -->
+
+		<!-- MENU CONSULTA -->
+		<!-- 		<li> -->
+		<!-- 			<a href="#" title="">Consultas</a> -->
+		<!-- 			<ul class="sub-menu"> -->
+		<!-- 				<li> -->
+		<!-- 					<a href="#" title=""></a> -->
+		<!-- 				</li> -->
+		<!-- 			</ul> -->
+		<!--         </li> -->
+
+		<!-- 		</ui:fragment> -->
+
+		<!-- 	</ul> -->
+
+	</h:form>
+</f:view>
+</html>

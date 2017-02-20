@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition template="../WEB-INF/templates/page.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:sec="http://www.springframework.org/security/facelets/tags">
+
+	<ui:define name="content">
+
+		<div class="titulo-pagina">
+			<h2>Bolão</h2>
+		</div>
+
+		<!-- <h:form id="form" styleClass="formularios box-border"> -->
+
+		<p:outputPanel rendered="#{inicioBean.apostasGolNull == 0}">
+		<div class="ui-messages ui-widget">
+			<div class="ui-messages-info ui-corner-all">
+				<span class="ui-messages-info-icon"></span>
+				<ul>
+					<li><span class="ui-messages-info-summary">Você já completou suas apostas de jogos!</span></li>
+				</ul>
+			</div>
+		</div>
+		</p:outputPanel>
+		
+		<p:outputPanel rendered="#{inicioBean.apostasGolNull > 0}">
+		<div class="ui-messages ui-widget">
+			<div class="ui-messages-warn ui-corner-all">
+				<span class="ui-messages-warn-icon"></span>
+				<ul>
+					<li><span class="ui-messages-warn-summary">Existem #{inicioBean.apostasGolNull} apostas de jogos incompletas!</span></li>
+				</ul>
+			</div>
+		</div>
+		</p:outputPanel>
+		
+		<p:outputPanel rendered="#{inicioBean.apostasPendentes == 0}">
+		<div class="ui-messages ui-widget">
+			<div class="ui-messages-info ui-corner-all">
+				<span class="ui-messages-info-icon"></span>
+				<ul>
+					<li><span class="ui-messages-info-summary">Você já completou suas apostas de grupos!</span></li>
+				</ul>
+			</div>
+		</div>
+		</p:outputPanel>
+		
+		<p:outputPanel rendered="#{inicioBean.apostasPendentes > 0}">
+		<div class="ui-messages ui-widget">
+			<div class="ui-messages-warn ui-corner-all">
+				<span class="ui-messages-warn-icon"></span>
+				<ul>
+					<li><span class="ui-messages-warn-summary">Existem #{inicioBean.apostasPendentes} apostas de grupos incompletas!</span></li>
+				</ul>
+			</div>
+		</div>
+		</p:outputPanel>
+
+		<p:messages infoClass="infoMessage" errorClass="errorMessage"
+			showDetail="true" autoUpdate="false"
+			rendered="#{inicioBean.jogos != null}" />
+
+		<p:layout fullPage="false" style="height: 550px">
+
+			<p:layoutUnit position="center" header="Noticias">
+				
+
+				<div style="padding: 10px;">
+					<p>Seja bem-vindo ao Bolão, além da premiação, o intuito desse bolão é acompanhar todo o campeonato de uma
+						maneira mais emocionante. O Bolão é válido em toda primeira fase.</p>
+					<br />
+					<p>Utilize o menu de navegação no alto, para consultar as
+						regras do Bolão, fazer suas apostas, consultar sua classificação,
+						e tirar suas dúvidas. Um arquivo PDF com todas
+						as apostas válidas dos participantes será enviado para garantir da
+						apuração do resultado. Cada vez, que a classificação for
+						atualizada você receberá um e-mail informando a colocação dos
+						participantes.</p>
+					<br />
+					<p>Na opção "Minhas Apostas" no menu, você deve cadastrar seus palpite nos resultados dos jogos e quais seleções irão
+						passar para próxima fase. Verifique se não esqueceu nenhum palpite, você deve finalizar suas apostas até  um
+						dia antes do primeiro jogo.</p>
+					<br />
+					<p>Então, espero que todos se divirtam e BOA SORTE!</p>
+					<br />
+					<p>Total Participantes cadastrados: #{inicioBean.totalParticipantes}</p>
+					 <p>Total ativos: #{inicioBean.totalParticipantesAtivos}</p>
+					 <p> Total arrecadado:  #{inicioBean.totalParticipantesAtivos*50}</p>
+				</div>
+
+			</p:layoutUnit>
+
+			
+
+			</p:layout>
+
+			
+
+		
+
+	</ui:define>
+</ui:composition>
