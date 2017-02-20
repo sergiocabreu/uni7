@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html" 
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">    
+<h:head><title><h:outputText value="#{msg['page.login.title']}" /></title></h:head>
+<h:body>
+    <div align="center">
+        <p:panel header="#{msg['page.login.title']}">
+	        <h:form id="loginForm">
+	            <h:message for="loginForm" errorStyle="color: red;" />    
+	            <h:panelGrid columns="3">
+	                <h:outputLabel for="cpfInput" 
+	                    value="#{msg['page.login.label.cpf']}:" />
+	                <p:inputText id="cpfInput" value="#{loginBean.cpf}" 
+	                    maxlength="11" size="12" required="true" />
+	                <h:message for="cpfInput" errorStyle="color: red;" />
+	                <h:outputLabel for="senhaInput"
+	                    value="#{msg['page.login.label.senha']}:" />  
+	                <p:password id="senhaInput" value="#{loginBean.senha}"
+	                    maxlength="11" size="12" required="true" />
+	                <h:message for="senhaInput" errorStyle="color: red;" />
+	            </h:panelGrid>
+	            <p:commandButton action="#{loginBean.autenticar}"
+	                value="#{msg['page.login.label.entrar']}"
+	                ajax="false" />
+	        </h:form>
+        </p:panel>
+    </div>
+</h:body>
+</html>

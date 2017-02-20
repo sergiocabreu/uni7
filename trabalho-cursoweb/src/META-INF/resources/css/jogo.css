@@ -1,0 +1,86 @@
+.jogadores{
+	 float: left; 
+	 border: 1px solid black;
+	 padding: 10px;
+}
+
+.jogadores-input{
+	padding: 5px;
+}
+
+.jogadores-input-label{
+	padding-right: 3px;
+}
+
+.jogadores-comandos{
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 1px solid black;
+	text-align: center;
+}
+
+.jogadores-comandos{
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 1px solid black;
+	text-align: center;
+}
+
+.jogadores-comandos-button{
+	width: 100%;
+}
+
+
+
+/*TABULEIRO*/
+.tabuleiro {
+	float: left;
+	border: 1px solid black;
+	padding: 10px;
+	margin-left: 5px;
+	
+}
+.tabuleiro-linha{
+	/* float:left; */
+}
+
+.tabuleiro-coluna {
+	float:left;
+	padding: 5px;
+	width: 50px;
+	height: 50px;
+	font-size: large;	
+}
+
+/* .tabuleiro-coluna button {
+	width: 100%;
+	height: 100%;
+	font-size: xx-large;
+}  */
+
+.tabuleiro-button {
+	width: 100%;
+	height: 100%;
+	font-size: xx-large;
+}
+
+.tabuleiro-coluna-borda-top {
+	border-top: 1px solid red;
+}
+
+.tabuleiro-coluna-borda-right {
+	border-right: 1px solid red;
+}
+
+.tabuleiro-coluna-borda-bottom {
+	border-bottom: 1px solid red;
+	
+}
+
+.tabuleiro-coluna-borda-left{
+	border-left:  1px solid red;
+}
+
+
+
+
