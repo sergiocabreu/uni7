@@ -1,3 +1,5 @@
-Projeto com exemplos de utilização da ferramente jBehave.
+Projeto com exemplos de utilização da ferramenta jBehave.
 
-1. Projeto java, criado com o eclipse oxygen.
+Link da ferramenta: http://jbehave.org/
+
+1. Projeto maven, criado com o eclipse oxygen.
