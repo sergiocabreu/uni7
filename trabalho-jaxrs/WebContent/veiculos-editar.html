@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1,
+maximum-scale=1, user-scalable=no">
+<title>Cadastro de Veículos</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+	
+		<div class="page-header">
+			<h3>Cadastro de Veículos</h3>
+		</div>
+		
+		<form class="form" novalidate>
+			<input type="hidden" id="id" />
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<div id="global-message" class="alert text-center" role="alert"
+						hidden></div>
+				</div>
+			</div>
+			<div class="row">
+			
+				<!-- Placa -->
+				<div class="col-xs-12 col-sm-12 col-md-4">
+					<div class="form-group">
+						<label for="placa" class="control-label">Placa</label> 
+						<input type="text" class="form-control" id="placa" placeholder="AAA-0000" maxlength="11" title="Placa do veículo." />
+						<span id="placa-message" class="text-danger" hidden></span>
+					</div>
+				</div>
+				
+				<!-- PROPRIETARIO -->
+				<div class="col-xs-12 col-sm-12 col-md-4">
+					<div class="form-group">
+						<label for="proprietario" class="control-label">Proprietario</label> 
+						<input type="text" class="form-control" id="proprietario" placeholder="Nome completo" maxlength="100"
+							title="Nome deve ter no mínimo 3 caracteres" /> 
+						<span id="nome-message" class="text-danger" hidden></span>
+					</div>
+				</div>
+				
+				<!-- EMPLACAMENTO -->
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<div class="form-group">
+						<label for="emplacamento" class="control-label"> Data de emplacamento</label> 
+						<input type="text" class="form-control" id="emplacamento" placeholder="99/99/9999" maxlength="20" /> 
+						<span id="emplacamento-message" class="text-danger" hidden></span>
+					</div>
+				</div>
+				
+				<!-- IPVA -->
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<div class="form-group">
+						<label for="ipva" class="control-label"> IPVA</label> 
+						<input type="text" class="form-control" id="ipva" placeholder="000000.00" maxlength="10" /> 
+						<span id="ipva-message" class="text-danger" hidden></span>
+					</div>
+				</div>
+
+			</div>
+			
+			<div class="row">
+				<div
+					class="col-xs-12 col-sm-4 col-md-2 col-sm-offset-4 col-md-offset-5">
+					<a class="btn btn-primary btn-block" href="veiculos-listar.html">
+						<span class="glyphicon glyphicon-menu-left"></span> Voltar
+					</a>
+					<button id="salvar" class="btn btn-success btn-block" type="button">
+						<span class="glyphicon glyphicon-ok"></span> Salvar
+					</button>
+					
+					<button id="excluir" class="btn btn-danger btn-block" type="button">
+						<span class="glyphicon glyphicon-remove"></span> Excluir
+					</button>					
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="js/lib/jquery.js"></script>
+	<script src="js/lib/bootstrap.js"></script>
+	<script src="js/api/veiculos-proxy.js"></script>
+	<script src="js/ctrl/veiculos-editar.js"></script>
+</body>
+</html>

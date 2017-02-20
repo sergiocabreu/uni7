@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+    
+<h:head>
+    <title>
+        <h:outputText value="#{msg['page.jogo.title']}" />
+    </title>
+    <h:outputStylesheet name="css/jogo.css"/>
+</h:head>
+
+<h:body>
+	<h:form id="jogoForm">
+		<!-- PRINCIPAL -->
+		<div class="principal">
+
+			<!-- JOGADORES -->
+			<div class="jogadores">
+				<div>
+					<h:outputText value="#{msg['page.jogo.label.jogadores']}"/>
+				</div>
+				
+				<!-- Jogador 1 -->
+				<div class="jogadores-input">
+					<h:outputLabel 
+						for="nomeJogadorUmInput"
+						value="#{msg['page.jogo.label.jogador-um']}" 
+						styleClass="jogadores-input-label"/>
+					<h:inputText 
+						id="nomeJogadorUmInput" 
+						required="true"
+						value="#{jogoBean.nomeJogadorO}"
+					>
+						<f:validateLength minimum="3" />
+					</h:inputText>
+					<h:message for="nomeJogadorUmInput" />
+				</div>
+				
+				<!-- Jogador 2 -->
+				<div class="jogadores-input">
+					<h:outputLabel 
+						for="nomeJogadorDoisInput"
+						value="#{msg['page.jogo.label.jogador-dois']}" 
+						styleClass="jogadores-input-label"/>
+					<h:inputText 
+						id="nomeJogadorDoisInput" 
+						required="true"
+						value="#{jogoBean.nomeJogadorX}">
+						
+						<f:validateLength minimum="3" />					
+					</h:inputText>
+					
+					<h:message for="nomeJogadorDoisInput" />
+				</div>
+				
+				
+				<!-- Botões de Comandos -->
+				<div class="jogadores-comandos">
+					<div>
+						<h:commandButton
+							action="#{jogoBean.novo}"
+							value="#{msg['page.jogo.label.novo']}"
+							styleClass="jogadores-comandos-button"
+							style="	width: 100%;">
+							<f:ajax
+								execute="@form"
+								render="@form"
+								/>	
+						</h:commandButton>
+					</div>
+					
+	<!-- 				<div>
+						<h:commandButton 
+							action="index" 
+							value="#{msg['commons.voltar']}"
+							immediate="true" />			
+					</div>	 -->
+				</div>
+				<!-- Botões de Comandos -->
+			</div>
+			<!-- JOGADORES -->
+		
+			<!-- TABULEIRO -->
+			<h:panelGroup id="tabuleiro">
+			<div class="tabuleiro">
+			
+				<div class="tabuleiro-label">
+					<!-- SAIDA DE INFORMAÇÃO -->
+	 				<h:outputFormat id="mensagemJogo" value="#{msg[jogoBean.mensagemChave]}" styleClass="error">
+		            	<f:param value="#{jogoBean.mensagemValor}" />
+		        	</h:outputFormat>
+				</div>
+			
+				<div class="tabuleiro-linha">
+					<div class="tabuleiro-coluna tabuleiro-coluna-borda-right tabuleiro-coluna-borda-bottom">
+						<h:commandButton 
+							action="#{jogoBean.jogar(0,0)}" 
+							value="#{jogoBean.tabuleiro(0,0)}" 
+							styleClass="tabuleiro-button"
+							disabled="#{jogoBean.desabilitar(0,0)}">
+								<f:ajax execute="@this" render="@this tabuleiro mensagemJogo"/>
+						</h:commandButton>
+					</div>
+					<div class="tabuleiro-coluna tabuleiro-coluna-borda-right tabuleiro-coluna-borda-bottom tabuleiro-coluna-borda-left">
+						<h:commandButton 
+							action="#{jogoBean.jogar(0,1)}" 
+							value="#{jogoBean.tabuleiro(0,1)}" 
+							styleClass="tabuleiro-button" 
+							disabled="#{jogoBean.desabilitar(0,1)}">
+								<f:ajax execute="@this" render="@this tabuleiro mensagemJogo" />
+						</h:commandButton>
+					</div>
+					<div class="tabuleiro-coluna tabuleiro-coluna-borda-bottom tabuleiro-coluna-borda-left">
+						<h:commandButton 
+							action="#{jogoBean.jogar(0,2)}" 
+							value="#{jogoBean.tabuleiro(0,2)}" 
+							styleClass="tabuleiro-button"
+							disabled="#{jogoBean.desabilitar(0,2)}">
+								<f:ajax execute="@this" render="@this tabuleiro mensagemJogo"/>
+						</h:commandButton>
+					</div>										
+				</div>
+				
+				<div class="tabuleiro-linha">
+					<div class="tabuleiro-coluna tabuleiro-coluna-borda-top tabuleiro-coluna-borda-right tabuleiro-coluna-borda-bottom">
+						<h:commandButton 
+							action="#{jogoBean.jogar(1,0)}" 
+							value="#{jogoBean.tabuleiro(1,0)}" 
+							styleClass="tabuleiro-button"
+							disabled="#{jogoBean.desabilitar(1,0)}">
+								<f:ajax execute="@this" render="@this tabuleiro mensagemJogo"/>
+						</h:commandButton>
+					</div>
+					<div class="tabuleiro-coluna tabuleiro-coluna-borda-top tabuleiro-coluna-borda-right tabuleiro-coluna-borda-bottom tabuleiro-coluna-borda-left">
+						<h:commandButton 
+							action="#{jogoBean.jogar(1,1)}" 
+							value="#{jogoBean.tabuleiro(1,1)}" 
+							styleClass="tabuleiro-button"
+							disabled="#{jogoBean.desabilitar(1,1)}">
+								<f:ajax execute="@this" render="@this tabuleiro mensagemJogo"/>
+						</h:commandButton>
+					</div>
+					<div class="tabuleiro-coluna tabuleiro-coluna-borda-top tabuleiro-coluna-borda-bottom tabuleiro-coluna-borda-left">
+						<h:commandButton 
+							action="#{jogoBean.jogar(1,2)}" 
+							value="#{jogoBean.tabuleiro(1,2)}" 
+							styleClass="tabuleiro-button"
+							disabled="#{jogoBean.desabilitar(1,2)}">
+								<f:ajax execute="@this" render="@this tabuleiro mensagemJogo"/>
+						</h:commandButton>
+					</div>										
+				</div>
+				
+				<div class="tabuleiro-linha">
+					<div class="tabuleiro-coluna tabuleiro-coluna-borda-top tabuleiro-coluna-borda-right">
+						<h:commandButton 
+							action="#{jogoBean.jogar(2,0)}" 
+							value="#{jogoBean.tabuleiro(2,0)}" 
+							styleClass="tabuleiro-button"
+							disabled="#{jogoBean.desabilitar(2,0)}">
+								<f:ajax execute="@this" render="@this tabuleiro mensagemJogo"/>
+						</h:commandButton>
+					</div>
+					<div class="tabuleiro-coluna tabuleiro-coluna-borda-top tabuleiro-coluna-borda-right tabuleiro-coluna-borda-left">
+						<h:commandButton 
+							action="#{jogoBean.jogar(2,1)}" 
+							value="#{jogoBean.tabuleiro(2,1)}" 
+							styleClass="tabuleiro-button"
+							disabled="#{jogoBean.desabilitar(2,1)}">
+								<f:ajax execute="@this" render="@this tabuleiro mensagemJogo"/>
+						</h:commandButton>
+					</div>
+					<div class="tabuleiro-coluna tabuleiro-coluna-borda-top tabuleiro-coluna-borda-left">
+						<h:commandButton 
+							action="#{jogoBean.jogar(2,2)}" 
+							value="#{jogoBean.tabuleiro(2,2)}" 
+							styleClass="tabuleiro-button"
+							disabled="#{jogoBean.desabilitar(2,2)}">
+								<f:ajax execute="@this" render="@this tabuleiro mensagemJogo"/>
+						</h:commandButton>
+					</div>										
+				</div>								
+				
+			</div>
+			</h:panelGroup>
+			<!-- TABULEIRO -->
+					
+		</div>
+		<!-- PRINCIPAL -->
+	</h:form>
+</h:body>
+</html>

@@ -5,4 +5,22 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
     version="2.2">
 
+	<!-- Configurações gerais do JSF -->
+	<application>
+		<message-bundle>javax.faces.FacesMessages</message-bundle>
+		<resource-bundle>
+			<base-name>SystemMessages</base-name>
+			<var>msg</var>
+		</resource-bundle>
+		<locale-config>
+			<default-locale>pt_BR</default-locale>
+		</locale-config>
+	</application>
+	
+    <lifecycle>
+        <phase-listener>
+            br.com.trabalhocursoweb.listeners.LoginPhaseListener
+        </phase-listener>
+    </lifecycle>		
+	
 </faces-config>
