@@ -11,8 +11,8 @@ public class AdderSteps {
 	
 	private Adder adder;
 	
-	@Given("um somador é criado")
-	@Aliases(values={"um somador é instanciado"})
+	@Given("um somador Ã© criado")
+	@Aliases(values={"um somador Ã© instanciado"})
 	public void theAdderIsCreated(){
 		adder = new Adder();
 	}

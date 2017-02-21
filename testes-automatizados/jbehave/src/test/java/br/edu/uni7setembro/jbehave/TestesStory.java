@@ -14,8 +14,8 @@ import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
 
-public class TestAdder extends JUnitStory {
-
+public abstract class TestesStory extends JUnitStory {
+	
     @Override
     public Configuration configuration() {
     	
@@ -24,20 +24,18 @@ public class TestAdder extends JUnitStory {
         return new MostUsefulConfiguration()
         	.useKeywords(keywords)
         	.useStoryParser(new RegexStoryParser(keywords))
-            // Onde procurar pelas est�rias
-        	.useStoryLoader(new LoadFromClasspath(this.getClass()))
+            // Onde procurar pelas estórias
+        	.useStoryLoader( new LoadFromClasspath(this.getClass()))
             // Para onde fazer os reports
             .useStoryReporterBuilder(new StoryReporterBuilder()
             								.withDefaultFormats()
-            								.withFormats(Format.CONSOLE, Format.HTML)); 
+            								.withFormats(Format.CONSOLE, Format.HTML));
     }
  
     @Override
     public InjectableStepsFactory stepsFactory() {        
-        // varargs, podemos ter mais de uma classe de steps
-        //return new InstanceStepsFactory(configuration(), new AdderSteps());
-    	return new InstanceStepsFactory(configuration(), new DividirSteps());
+
+    	return new InstanceStepsFactory(configuration(), new DividirSteps(), new AdderSteps());
     }
-    
-    
+
 }
