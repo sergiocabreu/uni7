@@ -31,7 +31,7 @@ public class DividirSteps {
 		Assert.assertEquals(this.divisao, divisao, 0.0001);
 	}
 
-	@Then("o resultado eh uma mensagem de erro: $mensagem")
+	@Then("mostra a mensagem de erro: $mensagem")
 	public void entaoResultadoMensagemErro(String mensagem) {
 		Assert.assertEquals(this.mensagem, mensagem);
 	}

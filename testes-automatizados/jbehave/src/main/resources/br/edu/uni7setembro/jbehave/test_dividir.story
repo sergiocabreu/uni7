@@ -5,5 +5,4 @@ Quando o numerador 10 eh dividido pelo denominador 2
 Então o resultado eh 5
 
 Quando o numerador 10 eh dividido pelo denominador 0
-Então o resultado eh uma mensagem de erro:
-Não pode dividir por zero.
+Então mostra a mensagem de erro: Não pode dividir por zero.
