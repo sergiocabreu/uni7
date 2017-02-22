@@ -33,7 +33,6 @@ public class DividirSteps {
 
 	@Then("o resultado eh uma mensagem de erro: $mensagem")
 	public void entaoResultadoMensagemErro(String mensagem) {
-		//expectedEx.expect(ArithmeticException.class);
 		Assert.assertEquals(this.mensagem, mensagem);
 	}
 }
