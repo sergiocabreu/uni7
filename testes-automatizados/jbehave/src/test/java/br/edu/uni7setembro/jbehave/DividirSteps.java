@@ -10,28 +10,30 @@ public class DividirSteps {
 	private Divisor divisor;
 	private double divisao;
 
+	private String mensagem;
+
 	@Given("um divisor foi instanciado")
 	public void dadoDivisorFoiInstanciado() {
 		divisor = new Divisor();
 	}
-	
+
 	@When("o numerador $numerador eh dividido pelo denominador $denominador")
 	public void quandoNumeradorDivididoPeloDenominador(int numerador, int denominador) {
-		divisao = divisor.dividir(numerador, denominador);
+		try {
+			divisao = divisor.dividir(numerador, denominador);
+		} catch (ArithmeticException e) {
+			mensagem = e.getMessage();
+		}
 	}
-	
+
 	@Then("o resultado eh $divisao")
 	public void entaoResultadoE(double divisao) {
 		Assert.assertEquals(this.divisao, divisao, 0.0001);
 	}
-	
-/*	@When("o numerador $numerador eh dividido pelo denominador $denominador")
-	public void numeradorDivididoPorZero(int numerador, int denominador) {		
-		divisao = divisor.dividir(numerador, denominador);
+
+	@Then("o resultado eh uma mensagem de erro: $mensagem")
+	public void entaoResultadoMensagemErro(String mensagem) {
+		//expectedEx.expect(ArithmeticException.class);
+		Assert.assertEquals(this.mensagem, mensagem);
 	}
-	
-	@Then("o resultado eh uma mensagem de erro")
-	public void resultadoMensagemDeErro() {
-		//Assert.assertThat(divisl, Exception.class);
-	}*/
 }
