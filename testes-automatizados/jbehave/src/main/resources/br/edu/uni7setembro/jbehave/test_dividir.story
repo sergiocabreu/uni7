@@ -1,3 +1,5 @@
+Cenário: Divisao de números naturais.
+
 Dado que um divisor foi instanciado
 Quando o numerador 10 eh dividido pelo denominador 2
 Então o resultado eh 5
