@@ -5,7 +5,7 @@ import { ACERVO } from './livros.mocks';
 @Component({
     selector: 'acervo',
     templateUrl: 'app/acervo.component.html',
-    styleUrls: ['app/acervo.component.css']
+    //styleUrls: ['app/acervo.component.css']
 })
 export class AcervoComponent {
   acervo: Livro[];
@@ -21,4 +21,8 @@ export class AcervoComponent {
       }
       return total;
   }
+
+adicionarUmNoCarrinho(livro:Livro) {
+ if (livro.quantidade < livro.emEstoque) livro.quantidade++;
+ }   
 }
