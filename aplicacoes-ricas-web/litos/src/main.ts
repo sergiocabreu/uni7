@@ -3,9 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppComponent } from './app/app.component';
 import { AcervoComponent } from './app/acervo.component';
+import { FormsModule } from '@angular/forms'; 
 
 @NgModule({
-    imports: [BrowserModule],
+    imports: [BrowserModule, FormsModule],
     declarations: [ AppComponent, AcervoComponent ],
     bootstrap: [ AppComponent ]
 })

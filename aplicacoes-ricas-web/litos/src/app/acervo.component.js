@@ -25,8 +25,14 @@ var AcervoComponent = (function () {
         return total;
     };
     AcervoComponent.prototype.adicionarUmNoCarrinho = function (livro) {
-        if (livro.quantidade < livro.emEstoque)
+        console.log("quantidade" + livro.quantidade);
+        console.log("estoque" + livro.emEstoque);
+        if (livro.quantidade < livro.emEstoque) {
             livro.quantidade++;
+            livro.emEstoque--;
+        }
+        console.log("quantidade" + livro.quantidade);
+        console.log("estoque" + livro.emEstoque);
     };
     AcervoComponent = __decorate([
         core_1.Component({

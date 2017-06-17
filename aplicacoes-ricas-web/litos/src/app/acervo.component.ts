@@ -22,7 +22,17 @@ export class AcervoComponent {
       return total;
   }
 
-adicionarUmNoCarrinho(livro:Livro) {
- if (livro.quantidade < livro.emEstoque) livro.quantidade++;
- }   
+ adicionarUmNoCarrinho(livro:Livro) {
+     console.log("quantidade" + livro.quantidade);
+     console.log("estoque" + livro.emEstoque);
+
+     if (livro.quantidade < livro.emEstoque) {
+         livro.quantidade++;
+         livro.emEstoque--;
+     }
+
+     console.log("quantidade" + livro.quantidade);
+     console.log("estoque" + livro.emEstoque);
+ }
+
 }
