@@ -9,12 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var livros_mocks_1 = require('./livros.mocks');
+var livro_data_service_1 = require('./livro-data.service');
 var AcervoComponent = (function () {
-    function AcervoComponent() {
+    function AcervoComponent(livroDataService) {
+        this.livroDataService = livroDataService;
     }
     AcervoComponent.prototype.ngOnInit = function () {
-        this.acervo = livros_mocks_1.ACERVO;
+        var livroDataService = new livro_data_service_1.LivroDataService();
+        this.acervo = this.livroDataService.getLivros();
     };
     AcervoComponent.prototype.totalDeLivros = function () {
         var total = 0;
@@ -39,7 +41,7 @@ var AcervoComponent = (function () {
             selector: 'acervo',
             templateUrl: 'app/acervo.component.html',
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [livro_data_service_1.LivroDataService])
     ], AcervoComponent);
     return AcervoComponent;
 }());

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Livro } from './livro';
-import { ACERVO } from './livros.mocks';
+import { LivroDataService } from './livro-data.service';
 
 @Component({
     selector: 'acervo',
@@ -10,8 +10,13 @@ import { ACERVO } from './livros.mocks';
 export class AcervoComponent {
   acervo: Livro[];
 
+constructor(private livroDataService: LivroDataService) {
+
+} 
+
   ngOnInit() {
-    this.acervo = ACERVO;
+     let livroDataService = new LivroDataService();
+     this.acervo = this.livroDataService.getLivros();
   }
 
   totalDeLivros() {

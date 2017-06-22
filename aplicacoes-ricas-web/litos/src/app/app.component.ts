@@ -6,11 +6,15 @@ import { Component } from '@angular/core';
       <nav>
         <div class="nav-wrapper">
           <a class="brand-logo">{{titulo}}</a>          
+          <ul class="right">
+            <li><a routerLink="/">Principal</a></li>
+            <li><a routerLink="/sobre">Sobre</a></li>
+          </ul>             
         </div>
       </nav>
       <div class="container">
-        <acervo></acervo>
-      </div>`,
+        <router-outlet></router-outlet>        
+      </div>`
 })
 export class AppComponent {
   titulo: string = "Livraria Litos";

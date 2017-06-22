@@ -9,18 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.titulo = "Livraria Litos";
+var SobrePageComponent = (function () {
+    function SobrePageComponent() {
     }
-    AppComponent = __decorate([
+    SobrePageComponent = __decorate([
         core_1.Component({
-            selector: 'meu-app',
-            template: "\n      <nav>\n        <div class=\"nav-wrapper\">\n          <a class=\"brand-logo\">{{titulo}}</a>          \n          <ul class=\"right\">\n            <li><a routerLink=\"/\">Principal</a></li>\n            <li><a routerLink=\"/sobre\">Sobre</a></li>\n          </ul>             \n        </div>\n      </nav>\n      <div class=\"container\">\n        <router-outlet></router-outlet>        \n      </div>"
-        }), 
+            selector: 'sobre-page',
+            templateUrl: 'app/sobre-page.component.html' }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], SobrePageComponent);
+    return SobrePageComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.SobrePageComponent = SobrePageComponent;
+//# sourceMappingURL=sobre-page.component.js.map

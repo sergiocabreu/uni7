@@ -8,19 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var livros_mocks_1 = require('./livros.mocks');
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.titulo = "Livraria Litos";
+var LivroDataService = (function () {
+    function LivroDataService() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'meu-app',
-            template: "\n      <nav>\n        <div class=\"nav-wrapper\">\n          <a class=\"brand-logo\">{{titulo}}</a>          \n          <ul class=\"right\">\n            <li><a routerLink=\"/\">Principal</a></li>\n            <li><a routerLink=\"/sobre\">Sobre</a></li>\n          </ul>             \n        </div>\n      </nav>\n      <div class=\"container\">\n        <router-outlet></router-outlet>        \n      </div>"
-        }), 
+    LivroDataService.prototype.getLivros = function () {
+        return livros_mocks_1.ACERVO;
+    };
+    LivroDataService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], LivroDataService);
+    return LivroDataService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.LivroDataService = LivroDataService;
+//# sourceMappingURL=livro-data.service.js.map
