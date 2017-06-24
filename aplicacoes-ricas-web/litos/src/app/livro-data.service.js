@@ -8,17 +8,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var livros_mocks_1 = require('./livros.mocks');
 var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
+var Observable_1 = require('rxjs/Observable');
+require('rxjs/add/operator/catch');
+require('rxjs/add/operator/map');
+require('rxjs/add/operator/toPromise');
 var LivroDataService = (function () {
-    function LivroDataService() {
+    function LivroDataService(http) {
+        this.http = http;
+        this.apiLivros = 'http://localhost:3004/livros';
     }
     LivroDataService.prototype.getLivros = function () {
-        return livros_mocks_1.ACERVO;
+        return this.http.get(this.apiLivros)
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    /*getLivros() : Observable<Livro[]> {
+        return this.http.get(this.apiLivros)
+        .map(this.extrairDados)
+        .catch(this.handleError);
+    }*/
+    LivroDataService.prototype.extrairDados = function (res) {
+        var body = res.json();
+        return body || {};
+    };
+    LivroDataService.prototype.handleError = function (error) {
+        return Observable_1.Observable.throw(error.json().error || 'Erro no servidor');
     };
     LivroDataService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], LivroDataService);
     return LivroDataService;
 }());

@@ -9,16 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var SobrePageComponent = (function () {
-    function SobrePageComponent() {
+var livro_1 = require('./livro');
+var LivroComponent = (function () {
+    function LivroComponent() {
     }
-    SobrePageComponent = __decorate([
+    LivroComponent.prototype.adicionarUmNoCarrinho = function (livro) {
+        //this.acervoCompoAcervo.adicionarUmNoCarrinho(livro);
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', livro_1.Livro)
+    ], LivroComponent.prototype, "livro", void 0);
+    LivroComponent = __decorate([
         core_1.Component({
-            selector: 'sobre-page',
-            templateUrl: 'app/sobre-page.component.html' }), 
+            selector: 'livro',
+            templateUrl: 'app/livro.component.html'
+        }), 
         __metadata('design:paramtypes', [])
-    ], SobrePageComponent);
-    return SobrePageComponent;
+    ], LivroComponent);
+    return LivroComponent;
 }());
-exports.SobrePageComponent = SobrePageComponent;
-//# sourceMappingURL=sobre-page.component.js.map
+exports.LivroComponent = LivroComponent;
+//# sourceMappingURL=livro.component.js.map

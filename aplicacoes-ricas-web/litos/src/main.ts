@@ -7,7 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { LivroDataService } from './app/livro-data.service';
 import { RouterModule, Routes } from '@angular/router'; 
 import { SobrePageComponent } from './app/sobre-page.component'; 
-
+import { HttpModule } from '@angular/http';
+import { LivroComponent } from './app/livro.component';
 const appRoutes: Routes = [ 
       { path: '', redirectTo: 'livros', pathMatch: 'full'},             
       { path: 'livros', component: AcervoComponent},             
@@ -15,10 +16,10 @@ const appRoutes: Routes = [
 ]; 
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
-    declarations: [ AppComponent, AcervoComponent ],
+    imports: [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(appRoutes)],
+    declarations: [ AppComponent, AcervoComponent, SobrePageComponent, LivroComponent ],
     bootstrap: [ AppComponent ],
-     providers: [ LivroDataService ] 
+    providers: [ LivroDataService ] 
 })
 class AppModule {}
 

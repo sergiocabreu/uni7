@@ -13,11 +13,24 @@ var livro_data_service_1 = require('./livro-data.service');
 var AcervoComponent = (function () {
     function AcervoComponent(livroDataService) {
         this.livroDataService = livroDataService;
+        this.acervo = [];
     }
     AcervoComponent.prototype.ngOnInit = function () {
-        var livroDataService = new livro_data_service_1.LivroDataService();
-        this.acervo = this.livroDataService.getLivros();
+        this.getLivros();
     };
+    AcervoComponent.prototype.getLivros = function () {
+        var _this = this;
+        this.livroDataService.getLivros()
+            .then(function (livros) { _this.acervo = livros; })
+            .catch(function (error) { return _this.errorMessage = error; });
+    };
+    /*getLivros(): void {
+      this.livroDataService.getLivros()
+      .subscribe(
+          livros => this.acervo = livros,
+          error => this.errorMessage = <any> error
+      );
+    }*/
     AcervoComponent.prototype.totalDeLivros = function () {
         var total = 0;
         for (var _i = 0, _a = this.acervo; _i < _a.length; _i++) {
@@ -27,14 +40,10 @@ var AcervoComponent = (function () {
         return total;
     };
     AcervoComponent.prototype.adicionarUmNoCarrinho = function (livro) {
-        console.log("quantidade" + livro.quantidade);
-        console.log("estoque" + livro.emEstoque);
         if (livro.quantidade < livro.emEstoque) {
             livro.quantidade++;
             livro.emEstoque--;
         }
-        console.log("quantidade" + livro.quantidade);
-        console.log("estoque" + livro.emEstoque);
     };
     AcervoComponent = __decorate([
         core_1.Component({

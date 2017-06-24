@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Livro } from './livro';
 import { LivroDataService } from './livro-data.service';
+import { LivroComponent } from './livro.component';
 
 @Component({
     selector: 'acervo',
@@ -8,16 +9,29 @@ import { LivroDataService } from './livro-data.service';
     //styleUrls: ['app/acervo.component.css']
 })
 export class AcervoComponent {
+  errorMessage: string;
   acervo: Livro[];
 
-constructor(private livroDataService: LivroDataService) {
-
-} 
+    constructor(private livroDataService: LivroDataService) {
+        this.acervo = [];
+    } 
 
   ngOnInit() {
-     let livroDataService = new LivroDataService();
-     this.acervo = this.livroDataService.getLivros();
+     this.getLivros();
   }
+
+    getLivros(): void {
+    this.livroDataService.getLivros()
+    .then(livros => { this.acervo = livros })
+    .catch( error => this.errorMessage = <any> error);
+    }  
+  /*getLivros(): void {
+    this.livroDataService.getLivros()
+    .subscribe(
+        livros => this.acervo = livros,
+        error => this.errorMessage = <any> error
+    );
+  }*/
 
   totalDeLivros() {
       let total = 0;
@@ -28,16 +42,11 @@ constructor(private livroDataService: LivroDataService) {
   }
 
  adicionarUmNoCarrinho(livro:Livro) {
-     console.log("quantidade" + livro.quantidade);
-     console.log("estoque" + livro.emEstoque);
 
      if (livro.quantidade < livro.emEstoque) {
          livro.quantidade++;
          livro.emEstoque--;
      }
-
-     console.log("quantidade" + livro.quantidade);
-     console.log("estoque" + livro.emEstoque);
  }
 
 }

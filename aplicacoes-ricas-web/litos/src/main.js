@@ -17,6 +17,8 @@ var forms_1 = require('@angular/forms');
 var livro_data_service_1 = require('./app/livro-data.service');
 var router_1 = require('@angular/router');
 var sobre_page_component_1 = require('./app/sobre-page.component');
+var http_1 = require('@angular/http');
+var livro_component_1 = require('./app/livro.component');
 var appRoutes = [
     { path: '', redirectTo: 'livros', pathMatch: 'full' },
     { path: 'livros', component: acervo_component_1.AcervoComponent },
@@ -27,8 +29,8 @@ var AppModule = (function () {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, router_1.RouterModule.forRoot(appRoutes)],
-            declarations: [app_component_1.AppComponent, acervo_component_1.AcervoComponent],
+            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, router_1.RouterModule.forRoot(appRoutes)],
+            declarations: [app_component_1.AppComponent, acervo_component_1.AcervoComponent, sobre_page_component_1.SobrePageComponent, livro_component_1.LivroComponent],
             bootstrap: [app_component_1.AppComponent],
             providers: [livro_data_service_1.LivroDataService]
         }), 
