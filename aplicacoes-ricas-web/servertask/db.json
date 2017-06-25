@@ -1,7 +1,16 @@
 {
-	"estorias" : [
-				{"id": 1, titulo: "Contratar Seguro", "descricao": "Como usuario...", "pontos": 10},
-				{"id": 2, titulo: "Cancelar Seguro", "descricao": "Como usuario...", "pontos": 30},
-				{"id": 3, titulo: "Cancelar Seguro", "descricao": "Como usuario...", "pontos": 40},
-	]
+"estorias" : [
+	{
+		"id": 1, 
+		"titulo": "Contratar Seguro", 
+		"descricao": "Como usuario...", 
+		"pontos": 10,
+		"tarefas": [ {"id" : 1, "descricao": "Isso e aquilo."},
+			     {"id" : 2, "descricao": "Isso e aquilo outro."}
+
+	     		  ]
+	},
+	{"id": 2, "titulo": "Cancelar Seguro", "descricao": "Como usuario...", "pontos": 30},
+	{"id": 3, "titulo": "Cancelar Seguro", "descricao": "Como usuario...", "pontos": 40}
+]
 }
